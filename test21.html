@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    :root {
+    --primary-color: #6c63ff;
+    --secondary-color: #f5f5f5;
+    --dark-color: #333;
+    --light-color: #fff;
+    --gray-color: #777;
+    --light-gray: #f8f9fa;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--light-gray);
+}
+
+/* Navbar */
+.navbar {
+    padding: 15px 0;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background-color: var(--light-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+    color: var(--dark-color);
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--light-color);
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--light-color);
+    margin: 0 10px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 5px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    width: 25px;
+    height: 2px;
+    background-color: var(--light-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: var(--light-color);
+    left: 0;
+    transition: var(--transition);
+}
+
+.navbar-toggler-icon::before {
+    transform: translateY(-8px);
+}
+
+.navbar-toggler-icon::after {
+    transform: translateY(8px);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--light-color);
+    padding: 150px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+    opacity: 0.3;
+}
+
+.hero-content h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-content h1 {
+    font-size: 60px;
+    margin-bottom: 15px;
+    animation: fadeInDown 1s ease 0.2s both;
+}
+
+.hero-content h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    animation: fadeInDown 1s ease 0.4s both;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    animation: fadeInDown 1s ease 0.6s both;
+}
+
+.hero-btns {
+    animation: fadeInDown 1s ease 0.8s both;
+}
+
+.hero-img {
+    position: relative;
+    animation: fadeInUp 1s ease 0.5s both;
+}
+
+.hero-img::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--light-color);
+    color: var(--light-color);
+}
+
+.btn-outline-primary {
+    border-color: var(--light-color);
+    color: var(--light-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2 span {
+    color: var(--primary-color);
+}
+
+.section-title p {
+    font-size: 18px;
+    color: var(--gray-color);
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* About Section */
+.about-img {
+    position: relative;
+    padding-right: 30px;
+}
+
+.about-img::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid var(--primary-color);
+    top: 30px;
+    left: 30px;
+    z-index: -1;
+}
+
+.about-content h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-info ul li {
+    margin-bottom: 10px;
+}
+
+.about-info ul li strong {
+    font-weight: 600;
+    margin-right: 10px;
+    color: var(--dark-color);
+}
+
+.skill-item .progress {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.skill-item .progress-bar {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Services Section */
+.service-card {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.service-card:hover .icon-box {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.icon-box i {
+    font-size: 30px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.service-card:hover .icon-box i {
+    color: var(--light-color);
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Experience & Education */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--primary-color);
+    left: 0;
+    top: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    left: -37px;
+    top: 5px;
+    border: 4px solid var(--light-color);
+}
+
+.timeline-date {
+    font-size: 14px;
+    color: var(--gray-color);
+    margin-bottom: 10px;
+}
+
+.timeline-content h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.timeline-content h5 {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Portfolio Section */
+.portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.portfolio-filter li {
+    padding: 8px 20px;
+    margin: 0 5px 10px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.portfolio-filter li.active,
+.portfolio-filter li:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.portfolio-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.portfolio-card img {
+    transition: var(--transition);
+    width: 100%;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(108, 99, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-info {
+    text-align: center;
+    padding: 20px;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.portfolio-card:hover .portfolio-info {
+    transform: translateY(0);
+}
+
+.portfolio-info h4 {
+    color: var(--light-color);
+    margin-bottom: 5px;
+}
+
+.portfolio-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.portfolio-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    line-height: 40px;
+    transition: var(--transition);
+}
+
+.portfolio-link:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* Testimonials Section */
+.testimonials-slider {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-item {
+    padding: 0 15px;
+}
+
+.testimonial-content {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-text p {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.testimonial-text p::before,
+.testimonial-text p::after {
+    content: '"';
+    font-size: 60px;
+    color: var(--primary-color);
+    opacity: 0.2;
+    position: absolute;
+    line-height: 1;
+}
+
+.testimonial-text p::before {
+    top: -20px;
+    left: -10px;
+}
+
+.testimonial-text p::after {
+    bottom: -50px;
+    right: -10px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.author-info h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author-info p {
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+/* Contact Section */
+.contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(108, 99, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.icon-box i {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.info-content h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(108, 99, 255, 0.1);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.contact-form .form-control {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.contact-form textarea.form-control {
+    height: auto;
+    resize: none;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--light-color);
+}
+
+.footer-links a {
+    color: var(--light-color);
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-copy p {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    70% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    .hero-content h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    section {
+        padding: 80px 0;
+    }
+    
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .hero {
+        padding: 120px 0 80px;
+    }
+    
+    .hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .hero-content h2 {
+        font-size: 20px;
+    }
+    
+    .about-img {
+        margin-bottom: 40px;
+        padding-right: 0;
+    }
+    
+    .about-img::before {
+        display: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        padding: 100px 0 60px;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+    
+    .hero-img {
+        margin-top: 40px;
+    }
+    
+    .section-title h2 {
+        font-size: 32px;
+    }
+    
+    .section-title p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-content h1 {
+        font-size: 30px;
+    }
+    
+    .hero-content h4 {
+        font-size: 16px;
+    }
+    
+    .hero-content h2 {
+        font-size: 18px;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+    
+    .portfolio-filter li {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+    
+    .testimonial-text p {
+        font-size: 16px;
+    }
+}
+</style>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">John Doe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h4 class="text-uppercase text-primary">Hello, I'm</h4>
+                    <h1 class="display-3 fw-bold">John Doe</h1>
+                    <h2 class="text-muted mb-4">UI/UX Designer & Frontend Developer</h2>
+                    <p class="mb-4">I design and build beautiful websites and applications that help businesses grow and succeed in the digital world.</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn btn-primary me-3">Hire Me</a>
+                        <a href="#" class="btn btn-outline-primary">Download CV</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img">
+                        <img src="https://via.placeholder.com/600x600" alt="John Doe" class="img-fluid rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>About <span>Me</span></h2>
+                <p>Get to know me better</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="about-img">
+                        <img src="https://via.placeholder.com/500x600" alt="About" class="img-fluid rounded">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="about-content">
+                        <h3 class="mb-4">Who am I?</h3>
+                        <p class="mb-4">I'm a passionate UI/UX designer and frontend developer with 5+ years of experience creating digital products that are both beautiful and functional. I specialize in user-centered design and clean, efficient code.</p>
+                        
+                        <div class="about-info row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Name:</strong> John Doe</li>
+                                    <li><strong>Email:</strong> john@example.com</li>
+                                    <li><strong>Phone:</strong> +1 234 567 890</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Age:</strong> 28</li>
+                                    <li><strong>From:</strong> San Francisco, CA</li>
+                                    <li><strong>Freelance:</strong> Available</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="skills mt-4">
+                            <h4 class="mb-3">My Skills</h4>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>UI/UX Design</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>HTML/CSS</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>JavaScript</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>My <span>Services</span></h2>
+                <p>What I offer to my clients</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Creating beautiful, intuitive interfaces that enhance user experience and drive engagement.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, high-performance websites with clean, maintainable code.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Design</h3>
+                        <p>Designing mobile apps that provide seamless experiences across all devices.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO Optimization</h3>
+                        <p>Improving your site's visibility and ranking on search engines.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Strategies to grow your online presence and reach your target audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="icon-box">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Support</h3>
+                        <p>Ongoing maintenance and support to keep your digital products running smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>My <span>Experience</span></h2>
+                <p>My professional journey</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - Present</div>
+                            <div class="timeline-content">
+                                <h4>Senior UI/UX Designer</h4>
+                                <h5>Tech Solutions Inc.</h5>
+                                <p>Lead designer responsible for creating user interfaces for web and mobile applications, conducting user research, and collaborating with development teams.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018 - 2020</div>
+                            <div class="timeline-content">
+                                <h4>UI Designer</h4>
+                                <h5>Creative Agency</h5>
+                                <p>Designed websites and mobile apps for various clients, created wireframes and prototypes, and participated in client meetings.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2016 - 2018</div>
+                            <div class="timeline-content">
+                                <h4>Junior Designer</h4>
+                                <h5>Startup Company</h5>
+                                <p>Assisted senior designers with various projects, created marketing materials, and learned fundamentals of UI/UX design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2014 - 2016</div>
+                            <div class="timeline-content">
+                                <h4>Master in Computer Science</h4>
+                                <h5>Stanford University</h5>
+                                <p>Specialized in Human-Computer Interaction and Web Technologies. Graduated with honors.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2010 - 2014</div>
+                            <div class="timeline-content">
+                                <h4>Bachelor of Fine Arts</h4>
+                                <h5>New York University</h5>
+                                <p>Major in Graphic Design with minor in Computer Science. Dean's list all semesters.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2006 - 2010</div>
+                            <div class="timeline-content">
+                                <h4>High School Diploma</h4>
+                                <h5>Lincoln High School</h5>
+                                <p>Graduated with focus on visual arts and technology courses.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>My <span>Portfolio</span></h2>
+                <p>Some of my recent works</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <ul class="portfolio-filter mb-4">
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".web">Web Design</li>
+                        <li data-filter=".app">Mobile App</li>
+                        <li data-filter=".branding">Branding</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row portfolio-grid">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item web">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>E-commerce Website</h4>
+                                <p>Web Design</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item app">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Fitness App</h4>
+                                <p>Mobile App</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item branding">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Coffee Brand</h4>
+                                <p>Branding</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item web">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 4" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Corporate Website</h4>
+                                <p>Web Design</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item app">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 5" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Travel App</h4>
+                                <p>Mobile App</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item branding">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 6" class="img-fluid">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h4>Restaurant Brand</h4>
+                                <p>Branding</p>
+                                <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client <span>Testimonials</span></h2>
+                <p>What my clients say about me</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonials-slider">
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">
+                                    <p>"John transformed our website completely. His attention to detail and creative approach resulted in a 40% increase in our conversion rates. Highly recommended!"</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://via.placeholder.com/80" alt="Client 1" class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Sarah Johnson</h5>
+                                        <p>CEO, TechCorp</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">
+                                    <p>"Working with John was a pleasure. He understood our vision perfectly and delivered beyond our expectations. The mobile app he designed has been a huge success."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://via.placeholder.com/80" alt="Client 2" class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Michael Chen</h5>
+                                        <p>Founder, HealthPlus</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-content">
+                                <div class="testimonial-text">
+                                    <p>"John's designs are not just beautiful but highly functional. He thinks about the user experience at every step. Our customers love the new interface he created."</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="https://via.placeholder.com/80" alt="Client 3" class="rounded-circle">
+                                    <div class="author-info">
+                                        <h5>Emily Rodriguez</h5>
+                                        <p>Marketing Director, FinServe</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In <span>Touch</span></h2>
+                <p>I'd love to hear from you</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <div class="info-item mb-4">
+                            <div class="icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Location</h5>
+                                <p>San Francisco, CA</p>
+                            </div>
+                        </div>
+                        <div class="info-item mb-4">
+                            <div class="icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Email</h5>
+                                <p>john@example.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item mb-4">
+                            <div class="icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Phone</h5>
+                                <p>+1 234 567 890</p>
+                            </div>
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="footer-logo mb-3">
+                        <a href="#">John Doe</a>
+                    </div>
+                    <div class="footer-links mb-4">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#services">Services</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-copy">
+                        <p>&copy; 2023 John Doe. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+<script>
+    $(document).ready(function() {
+    // Navbar scroll effect
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('.navbar').addClass('scrolled');
+        } else {
+            $('.navbar').removeClass('scrolled');
+        }
+    });
+    
+    // Smooth scrolling for navigation links
+    $('.navbar-nav a').on('click', function(e) {
+        if (this.hash !== '') {
+            e.preventDefault();
+            
+            const hash = this.hash;
+            
+            $('html, body').animate(
+                {
+                    scrollTop: $(hash).offset().top - 70
+                },
+                800
+            );
+            
+            // Close mobile menu when clicking a link
+            $('.navbar-collapse').collapse('hide');
+        }
+    });
+    
+    // Back to top button
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 300) {
+            $('.back-to-top').addClass('active');
+        } else {
+            $('.back-to-top').removeClass('active');
+        }
+    });
+    
+    $('.back-to-top').click(function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 800);
+    });
+    
+    // Portfolio filter
+    $('.portfolio-filter li').click(function() {
+        $('.portfolio-filter li').removeClass('active');
+        $(this).addClass('active');
+        
+        const filterValue = $(this).attr('data-filter');
+        
+        if (filterValue === '*') {
+            $('.portfolio-item').show();
+        } else {
+            $('.portfolio-item').not(filterValue).hide();
+            $('.portfolio-item').filter(filterValue).show();
+        }
+    });
+    
+    // Testimonials slider
+    $('.testimonials-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false,
+        dots: true
+    });
+    
+    // Animation on scroll
+    function animateOnScroll() {
+        $('.animate').each(function() {
+            const position = $(this).offset().top;
+            const scroll = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            
+            if (scroll + windowHeight - 100 > position) {
+                $(this).addClass('animated');
+            }
+        });
+    }
+    
+    // Initialize animations
+    $(window).scroll(function() {
+        animateOnScroll();
+    });
+    
+    animateOnScroll();
+    
+    // Add animation classes to elements
+    $('.hero-content h4, .hero-content h1, .hero-content h2, .hero-content p, .hero-btns').addClass('animate');
+    $('.service-card, .portfolio-item, .timeline-item').addClass('animate');
+    
+    // Form submission
+    $('.contact-form').submit(function(e) {
+        e.preventDefault();
+        
+        const form = $(this);
+        const button = form.find('button[type="submit"]');
+        const buttonText = button.text();
+        
+        button.html('<i class="fas fa-spinner fa-spin"></i> Processing...').prop('disabled', true);
+        
+        // Simulate form submission
+        setTimeout(function() {
+            button.html('<i class="fas fa-check"></i> Message Sent').prop('disabled', false);
+            
+            // Reset form after 3 seconds
+            setTimeout(function() {
+                form.trigger('reset');
+                button.text(buttonText);
+            }, 3000);
+        }, 1500);
+    });
+});
+</script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
