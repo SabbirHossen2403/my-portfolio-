@@ -60,11 +60,11 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+        <li><a href="./index.html#home"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="./index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="./index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="./index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+        <li><a href="./index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
         <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="#">Dropdown 1</a></li>
@@ -174,6 +174,55 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+   <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create cursor elements
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+    
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(follower);
+    
+    // Track mouse movement
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      // Follower follows with delay
+      setTimeout(() => {
+        follower.style.left = e.clientX + 'px';
+        follower.style.top = e.clientY + 'px';
+      }, 100);
+    });
+    
+    // Click effect
+    document.addEventListener('mousedown', () => {
+      cursor.classList.add('active');
+    });
+    
+    document.addEventListener('mouseup', () => {
+      cursor.classList.remove('active');
+    });
+    
+    // Custom hover effects for interactive elements
+    const hoverElements = document.querySelectorAll('a, button, [data-cursor-hover]');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        if (el.dataset.cursorColor) {
+          cursor.style.borderColor = el.dataset.cursorColor;
+        }
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.borderColor = '#3498db';
+      });
+    });
+  });
+</script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
